@@ -6,17 +6,14 @@ from random import randint
 
 janela = tk.Tk()
 janela.title("Menu jogo")
-janela.geometry("200x200")
+janela.geometry("300x300")
 
 def jogo():
     pygame.init()
     
+    pontos = 0
     largura = 720
     altura = 460
-
-    fonte = pygame.font.Font(None, 20)
-    mensagem = "Game over! C para recomeçar"
-    texto = fonte.render(mensagem, True, (255, 255, 255))
 
     pygame.display.set_caption("Jogo")
     tela = pygame.display.set_mode((largura, altura))
@@ -77,9 +74,7 @@ def jogo():
             pygame.quit()
             janela.quit()
             exit()
-            
-        
-        tela.blit(texto, (460, 1))
+
         pygame.display.update()
 
         clock.tick(60) 
@@ -91,7 +86,7 @@ def iniciar_jogo():
 
 label = tk.Label(janela, text="Dificuldade fácil:")
 label.grid(column=0, row=1)
-botao = tk.Button(janela, text="Clique aqui!", bg="blue", fg="aqua", command=iniciar_jogo)
+botao = tk.Button(janela, text="Clique aqui para iniciar", bg="blue", fg="aqua", command=iniciar_jogo)
 botao.grid(column=2, row=1)
 
 janela.mainloop()
